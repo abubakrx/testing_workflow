@@ -32,10 +32,10 @@ const axios = require('axios')
 // const arg_list = process.argv.slice(2);
 // console.log('myArgs: ', arg_list);
 
-const fs = require('fs')
-const path = require('path')
+// const fs = require('fs')
+// const path = require('path')
 
-const posts = fs.readdir(
-  path.join(process.env.GITHUB_WORKSPACE, 'content', 'posts')
-)
+// const posts = fs.readdir(
+//   path.join(process.env.GITHUB_WORKSPACE, 'content', 'posts')
+// )
 
