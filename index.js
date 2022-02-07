@@ -10,6 +10,7 @@ axios
     console.log(res)
   })
   .catch(error => {
+    console.log("ERRRRRRRRRRRRRRRRRRRR")
     console.log(error)
   })
 
