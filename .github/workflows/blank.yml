@@ -36,6 +36,6 @@ jobs:
           echo test, and deploy your project.
       - name: Run index.js
         run: | 
-          npm install -g axios
+          npm install
           node index.js
         
