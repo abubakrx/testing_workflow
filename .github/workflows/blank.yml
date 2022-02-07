@@ -39,7 +39,6 @@ jobs:
         with:
           format: space-delimited
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run index.js
         run: | 
           npm install axios
           node index.js "${{ steps.abc.outputs.all }}"
