@@ -19,7 +19,7 @@ const axios = require('axios')
 
 
 // Get arguments from the command line
-const arg_list = process.argv.slice(2);
+const arg_list = process.argv//.slice(2);
 console.log('myArgs: ', arg_list);
 
 
