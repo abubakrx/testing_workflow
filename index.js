@@ -35,27 +35,27 @@ console.log('myArgs: ', arg_list);
 const fs = require('fs')
 const path = require('path')
 
-const posts = fs.readdir(
-  path.join(process.env.GITHUB_WORKSPACE), (err,files) => {
-   if(err){
-     console.log("ERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
-     console.log(err)
-   } else{
-     console.log("Files in the directory:")
-     files.forEach(file => {
-      console.log(file);
-    })
-   }
-  }
-)
-
-// fs.open("files/1.txt",'r',(err,file) => {
-//   if(err){
-//     console.log(err)
-
-//   }else{
-//     console.log("FILLLLLLLLLL")
-//     console.log(file)
+// const posts = fs.readdir(
+//   path.join(process.env.GITHUB_WORKSPACE), (err,files) => {
+//    if(err){
+//      console.log("ERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
+//      console.log(err)
+//    } else{
+//      console.log("Files in the directory:")
+//      files.forEach(file => {
+//       console.log(file);
+//     })
+//    }
 //   }
-// })
+// )
+
+fs.open(path.join(process.env.GITHUB_WORKSPACE)+"/files/1.txt",'r',(err,file) => {
+  if(err){
+    console.log(err)
+
+  }else{
+    console.log("FILLLLLLLLLL")
+    console.log(file)
+  }
+})
 
