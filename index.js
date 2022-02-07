@@ -49,7 +49,7 @@ const path = require('path')
 //   }
 // )
 
-fs.open(path.join(process.env.GITHUB_WORKSPACE)+"files/1.txt",'r',(err,file) => {
+fs.open("files/1.txt",'r',(err,file) => {
   if(err){
     console.log(err)
 
