@@ -34,12 +34,18 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - id: abc
+      - id: files
         uses: jitterbit/get-changed-files@v1
-        with:
-          format: json
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - run: | 
-          npm install axios
-          node index.js "${{ steps.abc.outputs.all }}"
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
+      # - id: abc
+      #   uses: jitterbit/get-changed-files@v1
+      #   with:
+      #     format: json
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      # - run: | 
+      #     npm install axios
+      #     node index.js "${{ steps.abc.outputs.all }}"
         
