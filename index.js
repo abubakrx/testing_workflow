@@ -29,7 +29,13 @@ const axios = require('axios')
 
 
 // Get arguments from the command line
-const arg_list = process.argv//.slice(2);
+const arg_list = process.argv.slice(2);
 console.log('myArgs: ', arg_list);
 
+const fs = require('fs')
+const path = require('path')
+
+const posts = fs.readdir(
+  path.join(process.env.GITHUB_WORKSPACE, 'content', 'posts')
+)
 
