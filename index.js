@@ -36,7 +36,7 @@ const fs = require('fs')
 const path = require('path')
 
 const posts = fs.readdir(
-  path.join(process.env.GITHUB_WORKSPACE, 'content', 'posts'), (err,files) => {
+  path.join(process.env.GITHUB_WORKSPACE), (err,files) => {
    if(err){
      console.log("ERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
      console.log(err)
