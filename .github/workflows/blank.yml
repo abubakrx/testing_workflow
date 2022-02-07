@@ -42,5 +42,5 @@ jobs:
       - name: Run index.js
         run: | 
           npm install axios
-          node index.js ${{ steps.abc.outputs.all }}
+          node index.js "DCDCDCD"
         
