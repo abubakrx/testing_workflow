@@ -18,18 +18,18 @@ const axios = require('axios')
 
 
 
-axios.get('https://api.github.com/repos/abubakrx/testing_workflow/commits')
-.then(res => {
-  console.log(res.data[0])
-  // console.log(res.data[1])
-})
-.catch(error => {
-  console.log(error)
-})
+// axios.get('https://api.github.com/repos/abubakrx/testing_workflow/commits')
+// .then(res => {
+//   console.log(res.data[0])
+//   // console.log(res.data[1])
+// })
+// .catch(error => {
+//   console.log(error)
+// })
 
 
 // Get arguments from the command line
-// const arg_list = process.argv//.slice(2);
-// console.log('myArgs: ', arg_list);
+const arg_list = process.argv//.slice(2);
+console.log('myArgs: ', arg_list);
 
 
