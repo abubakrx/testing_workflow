@@ -36,8 +36,6 @@ jobs:
           echo test, and deploy your project.
       - id: files
         uses: jitterbit/get-changed-files@v1
-        with:
-          format: json
       - run: |
           node index.js "${{ steps.files.outputs.all }}"
       # - id: abc
