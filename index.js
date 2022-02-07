@@ -30,7 +30,9 @@ const axios = require('axios')
 
 // Get arguments from the command line
 const arg_list = process.argv//.slice(2);
-console.log('myArgs: ', arg_list[2]);
+// console.log('myArgs: ', arg_list[2]);
+files_list = arg_list.splice(" ")
+console.log(files_list)
 
 const fs = require('fs')
 const path = require('path')
