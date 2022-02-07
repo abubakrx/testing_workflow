@@ -34,8 +34,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with:
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run index.js
         run: | 
           npm install axios
-          node index.js
+          node index.js ${{ steps.abc.outputs.all }}
         
