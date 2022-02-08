@@ -15,10 +15,6 @@ const fs = require('fs')
 const path = require('path')
 
 files_list.map(file => {
-
-
-
-
   fs.readFile(path.join(process.env.GITHUB_WORKSPACE)+"/"+file,'utf8',(err,f) => {
     if(err){
       console.log("ERRRRRRRRRRRRRRRR")
@@ -29,9 +25,6 @@ files_list.map(file => {
       console.log(f)
     }
   })
-
-
-  
 })
 
 
