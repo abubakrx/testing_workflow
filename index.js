@@ -51,6 +51,19 @@ const path = require('path')
 //   }
 // )
 
+files_list.map(file => {
+  fs.readFile(path.join(process.env.GITHUB_WORKSPACE)+"/"+file,'utf8',(err,f) => {
+    if(err){
+      console.log("ERRRRRRRRRRRRRRRR")
+      console.log(err)
+
+    }else{
+      console.log("FILLLLLLLLLL")
+      console.log(f)
+    }
+  })
+})
+
 
 // fs.readFile(path.join(process.env.GITHUB_WORKSPACE)+"/files/1.txt",'utf8',(err,file) => {
 //   if(err){
