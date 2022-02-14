@@ -1,0 +1,41 @@
+name: MSSP-SOC
+
+on:
+  push:
+    branches: 
+    - main
+    - staging
+  pull_request:
+    branches: 
+      - main
+      - staging
+  workflow_dispatch:
+
+jobs:
+   changedfiles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          node index.js "${{ steps.files.outputs.all }}"
+      - id: abc
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: json
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: | 
+          npm install axios
+          node index.js "${{ steps.abc.outputs.all }}"
+  
+   convertrule:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+
+        - name: Run a one-line script
+          run: echo Hello, world!
+        - name: Run a multi-line script
+          run: |
+            python abc.py
