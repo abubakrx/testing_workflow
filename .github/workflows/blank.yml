@@ -17,14 +17,22 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
        - uses: actions/checkout@v1
+       - name: set up python ${{matrix.python-version}}
+         uses: actions/setup-python@v1 
          with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          python-version: ${{matrix.python-version}}
+       - name: Install dependencies
        - run: |
-           apt install python3
+           apt install python -y
+           python -m pip install --upgrade pip
            python3 abc.py
          
          
