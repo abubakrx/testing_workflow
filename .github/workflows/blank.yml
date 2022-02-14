@@ -24,6 +24,6 @@ jobs:
          with:
           token: ${{ secrets.GITHUB_TOKEN }}
        - run: |
-           print("Hello MSSP")
+           python3 abc.py
          
          
