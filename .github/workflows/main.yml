@@ -41,6 +41,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       
       - run: |
-        for changed_file in ${{ steps.get-new-files.outputs.added }}; do
+        for changed_file in ${{ steps.get-new-files.outputs.added }}
+        do
           poetry run sigma-converter --backend splunk -n --config crowdstrike ${changed_file} > temp
         done
