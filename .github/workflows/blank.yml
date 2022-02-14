@@ -19,9 +19,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-       - uses: actions/checkout@v1
-       - name: Install dependencies
-       - run: |
-           echo "Dfvdfvdfvdfvdfv"
+      - name: Install dependencies
+      - uses: actions/checkout@v1
+      - run: |
+          echo "Dfvdfvdfvdfvdfv"
          
          
