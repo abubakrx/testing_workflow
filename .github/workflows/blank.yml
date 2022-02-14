@@ -31,8 +31,6 @@ jobs:
           python-version: ${{matrix.python-version}}
        - name: Install dependencies
        - run: |
-           apt install python -y
-           python -m pip install --upgrade pip
-           python abc.py
+           echo "Dfvdfvdfvdfvdfv"
          
          
