@@ -18,47 +18,33 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  changedfiles:
+   changedfiles:
     runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      all: ${{ steps.changes.outputs.all}}
-      ts: ${{ steps.changes.outputs.ts }}
     steps:
-        # Make sure we have some code to diff.
-      - name: Checkout repository
-        uses: actions/checkout@v1
-      - name: Get changed files
-        id: changes
-        # Set outputs using the command.
-        run: |
-          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
-          echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)"
-  lint:
-    runs-on: ubuntu-latest
-    # require the first job to have ran
-    needs: changedfiles
-    # only run there are changed files
-    if: ${{needs.changedfiles.outputs.ts}}
-    steps:
-      - name: echo changed files
-        run: echo ${{needs.changedfiles.outputs.ts}}
-  # This workflow contains a single job called "build"
+      - uses: actions/checkout@v2
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          node index.js "${{ steps.files.outputs.all }}"
+      - id: abc
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: json
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: | 
+          npm install axios
+          node index.js "${{ steps.abc.outputs.all }}"
   
-  build:
+   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v1
+      steps:
+        - uses: actions/checkout@v1
 
-#       # Runs a single command using the runners shell
-#       - name: Run a one-line script
-#         run: echo Hello, world!
-
-#       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          python abc.py
+        - name: Run a one-line script
+          run: echo Hello, world!
+        - name: Run a multi-line script
+          run: |
+            python abc.py
